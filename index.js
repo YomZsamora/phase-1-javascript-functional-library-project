@@ -3,7 +3,7 @@
 function myEach(collection, callback) {
    // collection could either be an array or object. That's what we first check
    let collectionElements = []
-   if(typeof collection == "object") {
+   if(typeof collection === "object") {
       collectionElements = Object.values(collection)
    } else {
       collectionElements = collection
@@ -12,4 +12,21 @@ function myEach(collection, callback) {
       callback(element)
    }
    return collection
+}
+
+// Produces a new collection of values by mapping each value in collection through a transformation function, callback.
+function myMap(collection, callback) {
+   // collection could either be an array or object. That's what we first check
+   let collectionElements = []
+   if(typeof collection === "object") {
+      collectionElements = Object.values(collection)
+   } else {
+      collectionElements = collection
+   }
+   let newCollection = []
+   for (const element of collectionElements) {
+      newCollection.push(callback(element))
+   }
+   // Returns the new collection without modifying the original.
+   return newCollection
 }
