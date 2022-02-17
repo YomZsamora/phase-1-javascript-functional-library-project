@@ -1,32 +1,57 @@
 
 // Iterates over the collection of elements, passing each element in turn to the callback function.
 function myEach(collection, callback) {
-   // collection could either be an array or object. That's what we first check
-   let collectionElements = []
-   if(typeof collection === "object") {
-      collectionElements = Object.values(collection)
-   } else {
-      collectionElements = collection
-   }
-   for (const element of collectionElements ) {
-      callback(element)
-   }
-   return collection
+	// collection could either be an array or object. That's what we first check
+	let collectionElements = []
+	if(typeof collection === "object") {
+		collectionElements = Object.values(collection)
+	} else {
+		collectionElements = collection
+	}
+	for (const element of collectionElements ) {
+		callback(element)
+	}
+	return collection
 }
 
 // Produces a new collection of values by mapping each value in collection through a transformation function, callback.
 function myMap(collection, callback) {
-   // collection could either be an array or object. That's what we first check
-   let collectionElements = []
-   if(typeof collection === "object") {
-      collectionElements = Object.values(collection)
-   } else {
-      collectionElements = collection
-   }
-   let newCollection = []
-   for (const element of collectionElements) {
-      newCollection.push(callback(element))
-   }
-   // Returns the new collection without modifying the original.
-   return newCollection
+	// collection could either be an array or object. That's what we first check
+	let collectionElements = []
+	if(typeof collection === "object") {
+		collectionElements = Object.values(collection)
+	} else {
+		collectionElements = collection
+	}
+	let newCollection = []
+	for (const element of collectionElements) {
+		newCollection.push(callback(element))
+	}
+	// Returns the new collection without modifying the original.
+	return newCollection
+}
+
+// Returns the correct reduced value when either passed or not passed an initial value
+function myReduce(collection, callback, accumulator) {
+	// collection could either be an array or object. That's what we first check
+	let collectionElements = []
+	if(typeof collection === "object") {
+		collectionElements = Object.values(collection)
+	} else {
+		collectionElements = collection
+	}
+	// Since starting value for the accumulator is optional
+	if(typeof accumulator === "number") {
+		for(const element of collectionElements){
+			accumulator = callback(accumulator, element, collectionElements)
+		}
+	} else {
+		accumulator = parseInt(collectionElements.slice(0,1))
+		let newCollection = collectionElements.slice(1)
+		for(let element of newCollection) {
+			element = parseInt(element)
+			accumulator = callback(accumulator, element, collectionElements)
+		}
+	}
+	return accumulator 
 }
