@@ -71,3 +71,21 @@ function myFind(collection, predicate) {
 		}
 	}
 }
+
+// Looks through each value in the collection, returning an array of all the values that pass a truth test (predicate). 
+function myFilter(collection, predicate) {
+	// collection could either be an array or object. That's what we first check
+	let collectionElements = []
+	if(typeof collection === "object") {
+		collectionElements = Object.values(collection)
+	} else {
+		collectionElements = collection
+	}
+	let filteredCollection = []
+	for (const element of collectionElements) {
+		if(predicate(element)){
+			filteredCollection.push(element)
+		}
+	}
+	return filteredCollection
+}
