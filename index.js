@@ -55,3 +55,19 @@ function myReduce(collection, callback, accumulator) {
 	}
 	return accumulator 
 }
+
+// Returns the value if found and returns undefined if the value is not present
+function myFind(collection, predicate) {
+	// collection could either be an array or object. That's what we first check
+	let collectionElements = []
+	if(typeof collection === "object") {
+		collectionElements = Object.values(collection)
+	} else {
+		collectionElements = collection
+	}
+	for (const element of collectionElements){
+		if(predicate(element)){
+			return element
+		}
+	}
+}
