@@ -89,3 +89,19 @@ function myFilter(collection, predicate) {
 	}
 	return filteredCollection
 }
+
+// Return the number of values in the collection.
+function mySize(collection) {
+	// collection could either be an array or object. That's what we first check
+	let collectionElements = []
+	if(typeof collection === "object") {
+		collectionElements = Object.values(collection)
+	} else {
+		collectionElements = collection
+	}
+	let counter = 0
+    for(const element of collectionElements){
+        counter++
+    }
+    return counter
+}
