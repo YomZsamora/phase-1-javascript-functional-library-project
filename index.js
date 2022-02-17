@@ -105,3 +105,12 @@ function mySize(collection) {
     }
     return counter
 }
+
+// Returns the first element of an array. Passing an n will return the first n elements of the listOfElements.
+function myFirst(listOfElements, noOfElementsToReturn) {
+	if(typeof noOfElementsToReturn === "number") {
+		return listOfElements.slice(0, noOfElementsToReturn)
+	} else {
+		return listOfElements[0]
+	}
+}
