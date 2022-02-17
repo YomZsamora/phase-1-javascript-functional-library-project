@@ -123,3 +123,21 @@ function myLast(listOfElements, noOfElementsToReturn) {
 		 return listOfElements[mySize(listOfElements)-1]
 	}
 }
+
+// Retrieve all the names of the object's enumerable properties.
+function myKeys(object) {
+	let newArray = []
+	for(const key in object) {
+		 newArray.push(key)
+	}
+	return newArray
+};
+
+// Return all of the values of the object's properties.
+function myValues(object) {
+	let newArray = []
+	for(const key in object) {
+		 newArray.push(object[key])
+	}
+	return newArray
+}
