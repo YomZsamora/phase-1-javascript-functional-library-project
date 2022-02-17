@@ -123,3 +123,19 @@ function myLast(listOfElements, noOfElementsToReturn) {
 		 return listOfElements[mySize(listOfElements)-1]
 	}
 }
+
+function myKeys(object) {
+	let newArray = []
+	for(const key in object) {
+		 newArray.push(key)
+	}
+	return newArray
+};
+
+function myValues(object) {
+	let newArray = []
+	for(const key in object) {
+		 newArray.push(object[key])
+	}
+	return newArray
+}
