@@ -114,3 +114,12 @@ function myFirst(listOfElements, noOfElementsToReturn) {
 		return listOfElements[0]
 	}
 }
+
+// Returns the last element of the listOfElements. Passing n will return the last n elements in the list.
+function myLast(listOfElements, noOfElementsToReturn) {
+	if(typeof noOfElementsToReturn === "number") {
+		 return listOfElements.slice(-noOfElementsToReturn)
+	} else {
+		 return listOfElements[mySize(listOfElements)-1]
+	}
+}
